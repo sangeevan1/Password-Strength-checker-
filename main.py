@@ -1,4 +1,33 @@
 import re
+
+def passstrenth():
+    if strength < 3 :
+        print("Weak Password")
+    elif  strength >=3 and strength!=5  :
+        print("Medium strong password")
+    elif strength==5:
+        print("Strong password")
+
+def generate_pass(password):
+
+    repla = {
+        'a': '@',
+        'e': '3',
+        'i': '!',
+        'l': '1',
+        'o': '0',
+        's': '$',
+        't': '+',
+    }
+
+    for char, replacement in repla.items():
+     password = password.replace(char, replacement)
+
+
+
+
+    print(password)
+
 print("Welcome to Password strength Checker ")
 print("Tips : Please avoid entering your Date of Birth or your name as a password!")
 while True :
@@ -38,13 +67,18 @@ while True :
             suggestion.append("The password should contain special characters.")
 
 
-    print(f"\nYour Password strength is : {strength}/5\n")
+    print(f"\nYour Password strength is : {strength}/5")
+    passstrenth()
+
+
     if strength !=5:
         print("---------------------Suggestions---------------------")
         for sug in suggestion:
             print("-> " + sug)
         print("-----------------------------------------------------")
-
+        gva = input("Do you required password suggestion Y or No : ").lower()
+        if gva == "y":
+            generate_pass(password)
     else:
         val = input("Do you want to check another password ? Yes Or No : ").lower()
         if val == "yes":
@@ -53,3 +87,5 @@ while True :
             break
         else:
             print("Check the value")
+
+
