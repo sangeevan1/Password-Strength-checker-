@@ -93,8 +93,8 @@ while True :
         for sug in suggestion:
             print("-> " + sug)
         print("-----------------------------------------------------")
-        gva = input("Do you required password suggestion Y or No : ").lower()
-        if gva == "y":
+        gva = input("Do you required password suggestion Yes or No : ").lower()
+        if gva == "yes":
             #function for generate new password with random numbers and syntax
             passs = len(password)
             if passs < 12 and passs > 6 :
@@ -111,6 +111,12 @@ while True :
 
             else:
                 print(generate_pass(password))
+
+        elif gva == "no":
+            exit()
+
+        else:
+            print("Please check the input")
 
 
     else:
